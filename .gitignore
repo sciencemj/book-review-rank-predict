@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# data — Aladin ToS: do NOT redistribute raw descriptions OR per-book item DB
+# (salesPoint/isbn13 per book = Aladin's data). Publish only derived/aggregate
+# outputs (report, figures, notebook with aggregate outputs). Regenerate via src/.
+data/
+*.log
+
+# macOS
+.DS_Store
+
+# review screenshots (large, regenerable via screenshot_report.py)
+_review/
+
+# python
+__pycache__/
+.venv/
+*.pyc
+.ipynb_checkpoints/

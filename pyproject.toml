@@ -1,0 +1,16 @@
+[project]
+name = "book-review-rank-predict"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.0",
+    "nbclient>=0.11.0",
+    "numpy>=2.5.0",
+    "pandas>=3.0.4",
+    "playwright>=1.60.0",
+    "scikit-learn>=1.9.0",
+    "scipy>=1.18.0",
+    "statsmodels>=0.14.6",
+]

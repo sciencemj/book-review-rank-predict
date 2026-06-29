@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- Sciencemj — data-essay report. 책소개 copy × 알라딘 SalesPoint. -->
+<html lang="ko" data-theme="light" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>책소개 문구가 책을 팔까? — 알라딘 SalesPoint 1,814권 분석</title>
+<meta name="description" content="차트인한 한국 책 1,814권에서 책소개 copy는 판매 모멘텀을 거의 못 움직였다. 장르와 누적 리뷰가 지배.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{
+  --accent-50:#FDF1E8;--accent-100:#FBDFC8;--accent-200:#F6BE91;--accent-300:#F19C5C;
+  --accent-400:#ED7E33;--accent:#E8682B;--accent-600:#CE551E;--accent-700:#A84417;--accent-soft:#FBEEE2;
+  --canvas:#FAF6F0;--surface:#FFFFFF;--surface-2:#F3ECE0;
+  --ink:#221C16;--ink-2:#4A4036;--muted:#6E614D;--border:#E8DECE;--border-2:#D8CBB5;
+  --viz-orange:#E8682B;--viz-clay:#C2613F;--viz-sand:#D9A441;--viz-olive:#7E8A4B;
+  --viz-teal:#4E8A7E;--viz-slate:#5E6E8A;--viz-mauve:#B0746A;--viz-brown:#6B4B33;
+  --success:#5E8A52;--warning:#D9A441;--danger:#C5503B;--info:#4E8A7E;
+  --r-xs:6px;--r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:28px;--r-pill:999px;
+  --shadow-sm:0 1px 2px rgba(60,42,24,.06),0 1px 1px rgba(60,42,24,.04);
+  --shadow-md:0 4px 14px rgba(60,42,24,.08),0 2px 4px rgba(60,42,24,.05);
+  --shadow-lg:0 14px 34px rgba(60,42,24,.12),0 4px 10px rgba(60,42,24,.07);
+  --shadow-raised:inset 0 1px 0 rgba(255,255,255,.7),0 6px 16px rgba(60,42,24,.10);
+  --shadow-accent:0 10px 26px rgba(232,104,43,.30);
+  --font-display:"Space Grotesk","IBM Plex Sans KR",system-ui,sans-serif;
+  --font-body:"Hanken Grotesk","IBM Plex Sans KR",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+[data-theme="dark"]{
+  --accent:#F2783A;--accent-600:#E8682B;--accent-700:#F19C5C;--accent-soft:#2E2017;
+  --canvas:#1B1611;--surface:#251E18;--surface-2:#2F271F;
+  --ink:#F3EBDD;--ink-2:#C9BCA8;--muted:#998A75;--border:#392F26;--border-2:#4A3E31;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.40);--shadow-md:0 4px 14px rgba(0,0,0,.45);
+  --shadow-lg:0 14px 34px rgba(0,0,0,.55);--shadow-raised:inset 0 1px 0 rgba(255,255,255,.06),0 6px 16px rgba(0,0,0,.5);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font-body);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .3s,color .3s}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{text-wrap:pretty;margin:0}
+a{color:var(--accent);text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--canvas) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:-.02em;color:var(--ink);min-width:0}
+.brand .mk{width:26px;height:26px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-accent)}
+.brand .mk svg{width:15px;height:15px}
+.brand .dot{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--r-md);border:1px solid var(--border-2);background:var(--surface);color:var(--muted);cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .2s,color .15s}
+.icon-btn:hover{color:var(--ink);transform:translateY(-1px)}
+.icon-btn svg{width:18px;height:18px}
+.lang-toggle{display:inline-flex;align-items:stretch;border:1px solid var(--border-2);border-radius:var(--r-pill);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-sm)}
+.lang-toggle button{appearance:none;border:0;background:transparent;cursor:pointer;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--muted);padding:7px 13px;line-height:1;white-space:nowrap;transition:background .15s,color .15s}
+.lang-toggle button.on{background:var(--accent);color:#fff}
+.lang-toggle button:not(.on):hover{color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(232,104,43,.5);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,104,43,.5)}70%{box-shadow:0 0 0 8px rgba(232,104,43,0)}100%{box-shadow:0 0 0 0 rgba(232,104,43,0)}}
+.hero{position:relative;padding:74px 0 40px;overflow:hidden}
+.glow{position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:760px;height:420px;background:radial-gradient(ellipse at center,rgba(232,104,43,.18),rgba(232,104,43,0) 68%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.hero-grid>div{min-width:0}
+h1.title{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1.06;letter-spacing:-.025em;margin:18px 0 0}
+h1.title em{font-style:normal;color:var(--accent)}
+.lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:var(--ink-2);max-width:480px}
+.byline{margin-top:22px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px}
+.byline b{color:var(--ink-2);font-weight:500}
+.hero-meta{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.hero-meta .v{font-family:var(--font-mono);font-size:24px;font-weight:600}
+.hero-meta .v small{font-size:14px;color:var(--muted)}
+.hero-meta .k{font-size:12px;color:var(--muted);margin-top:2px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-raised);padding:20px}
+.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.panel-title{font-size:13px;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.panel-title .dotg{width:8px;height:8px;border-radius:50%;background:var(--success)}
+.big-num{font-family:var(--font-mono);font-size:30px;font-weight:600;margin:6px 0 0;letter-spacing:-.01em}
+.big-num .u{font-size:14px;color:var(--muted)}
+.delta{font-family:var(--font-mono);font-size:12px;color:var(--danger)}
+.panel img{width:100%;display:block;border-radius:var(--r-md);margin-top:8px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.stat{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 12px}
+.stat .v{font-family:var(--font-mono);font-size:16px;font-weight:600}
+.stat .k{font-size:11px;color:var(--muted);margin-top:1px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:var(--r-pill);font-family:var(--font-mono);font-size:11px;font-weight:500;background:var(--accent-soft);color:var(--accent-700)}
+section.block{padding:46px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:24px}
+.card.raised{box-shadow:var(--shadow-raised)}
+.card h3{font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card h3 .ic{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent-700);display:grid;place-items:center;flex:none}
+.card h3 .ic svg{width:16px;height:16px}
+.card p{color:var(--ink-2);font-size:14.5px}
+.cap{color:var(--muted);font-size:13px;margin-top:12px;line-height:1.55}
+.cap b{color:var(--ink);font-weight:600}
+.bars{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.bar-row{display:grid;grid-template-columns:130px 1fr 60px;align-items:center;gap:12px}
+.bar-row .lab{font-size:13px;color:var(--ink-2);overflow-wrap:anywhere}
+.bar-track{height:12px;background:var(--surface-2);border-radius:var(--r-pill);overflow:hidden}
+.bar-fill{height:100%;border-radius:var(--r-pill);background:var(--accent)}
+.bar-row .pct{font-family:var(--font-mono);font-size:12.5px;color:var(--ink);text-align:right}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);overflow-wrap:anywhere}
+th{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--surface-2)}
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ins{display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:18px 20px}
+.ins .n{font-family:var(--font-mono);font-weight:600;color:var(--accent);font-size:14px;flex:none;width:30px;height:30px;border-radius:9px;background:var(--accent-soft);display:grid;place-items:center}
+.ins h4{font-size:15.5px;margin-bottom:4px}
+.ins p{font-size:13.5px;color:var(--ink-2)}
+.callout{background:var(--accent-soft);border:1px solid var(--accent-200);border-left:4px solid var(--accent);border-radius:var(--r-md);padding:20px 22px}
+.callout h3{font-size:17px;color:var(--accent-700);margin-bottom:6px}
+.callout p{font-size:14.5px;color:var(--ink-2)}
+.refbox{display:grid;grid-template-columns:1fr 1fr;gap:30px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 28px}
+.ref-h{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 13px}
+.ref-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.ref-list li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.ref-list li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent-300)}
+.ref-list li b{color:var(--ink);font-weight:600;font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;margin-right:6px}
+.ref-list a{color:var(--accent);font-weight:500}
+.longform{padding:24px 0 8px}
+.essay{max-width:1080px;margin:0 auto;padding:0 28px}
+.essay+.essay{margin-top:0}
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:40px 0 16px}
+.kicker .no{display:inline-grid;place-items:center;min-width:26px;height:22px;padding:0 7px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent-700);font-size:11px}
+.kicker .ln{flex:1;height:1px;background:var(--border-2)}
+.essay h2{font-size:31px;letter-spacing:-.022em;line-height:1.13;margin:0 0 22px}
+.essay h3{font-size:19px;margin:34px 0 10px}
+.essay p{font-size:17.5px;line-height:1.86;color:var(--ink-2);margin:0 0 22px}
+.essay p b,.essay p strong{color:var(--ink);font-weight:600}
+.essay p.lede{font-size:20.5px;line-height:1.66;color:var(--ink)}
+.essay p.lede::first-letter{font-family:var(--font-display);font-weight:700;font-size:1em;color:var(--accent)}
+.midcol{max-width:1080px;margin:30px auto;padding:0 28px}
+.midcol.wide{max-width:1080px}
+figure.figure{margin:38px auto;max-width:1080px;padding:0 28px}
+figure.figure.wide{max-width:1080px}
+figure.figure .frame{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:16px;overflow:hidden}
+figure.figure img{width:100%;display:block;border-radius:var(--r-md)}
+figure.figure figcaption{margin:13px 4px 0;font-size:13.5px;line-height:1.62;color:var(--muted)}
+figure.figure figcaption .ft{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-right:9px}
+figure.figure figcaption b{color:var(--ink);font-weight:600}
+.pull{max-width:1080px;margin:36px auto;padding:4px 28px}
+.pull blockquote{margin:0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);font-family:var(--font-display);font-weight:600;font-size:24px;line-height:1.34;letter-spacing:-.01em;color:var(--ink)}
+.aside{max-width:1080px;margin:30px auto;padding:0 28px}
+.aside .box{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-md);padding:20px 24px}
+.aside .at{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.aside .at svg{width:14px;height:14px}
+.aside .box p{font-size:14.5px;line-height:1.72;color:var(--ink-2);margin:0}
+.aside .box p+p{margin-top:10px}
+.srccards{max-width:1080px;margin:26px auto;padding:0 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.srccards .card{padding:20px}
+.srccards .card h3{font-size:16px}
+@media(max-width:860px){.hero-grid,.grid-2,.insights,.refbox{grid-template-columns:1fr}.srccards{grid-template-columns:1fr}h1.title{font-size:36px}}
+@media(max-width:560px){.nav-in{gap:8px}.nav-right{gap:8px}.brand{font-size:15px}.lang-toggle button{padding:6px 10px}.essay h2{font-size:26px}.essay p{font-size:16.5px}.essay p.lede{font-size:18.5px}.pull blockquote{font-size:20px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand"><span class="mk"><i data-lucide="bar-chart-3"></i></span><span><span class="i18n" data-ko="책 판매지수" data-en="Book SalesPoint">책 판매지수</span><span class="dot">.</span></span></div>
+    <div class="nav-right">
+      <a href="https://sciencemj.github.io/" class="badge" aria-label="포트폴리오 / Portfolio"><span class="i18n" data-ko="← 포트폴리오" data-en="← Portfolio">← 포트폴리오</span></a>
+      <a href="https://github.com/sciencemj/book-review-rank-predict" class="icon-btn" target="_blank" rel="noopener" aria-label="GitHub 소스 / View source"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <div class="lang-toggle" role="group" aria-label="Language / 언어">
+        <button type="button" data-set-lang="ko">한국어</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <button class="icon-btn" id="theme" aria-label="테마 전환 / Toggle theme"><i data-lucide="moon"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="pulse"></span>&nbsp;<span class="i18n" data-ko="데이터 에세이 · 알라딘 도서 1,814권 · 2026-06" data-en="Data essay · 1,814 Aladin books · 2026-06">데이터 에세이 · 알라딘 도서 1,814권 · 2026-06</span></span>
+      <h1 class="title i18n" data-ko="책소개 문구가<br><em>책을 팔까?</em>" data-en="Does the blurb<br><em>sell the book?</em>">책소개 문구가<br><em>책을 팔까?</em></h1>
+      <p class="lead i18n" data-ko="차트인한 한국 책 1,814권에서, 책소개 copy·장르·길이·가격이 판매 모멘텀과 어떻게 얽히는지 분리해 봤다. 결론: <b>copy는 판매를 거의 못 움직인다.</b> 설명력의 거의 전부는 장르와 누적 리뷰 몫이었다." data-en="Across 1,814 charting Korean books, we separated how blurb copy, genre, length and price relate to sales momentum. Bottom line: <b>copy barely moves sales.</b> Almost all explanatory power belongs to genre and accumulated reviews.">차트인한 한국 책 1,814권에서, 책소개 copy·장르·길이·가격이 판매 모멘텀과 어떻게 얽히는지 분리해 봤다. 결론: <b>copy는 판매를 거의 못 움직인다.</b> 설명력의 거의 전부는 장르와 누적 리뷰 몫이었다.</p>
+      <div class="byline i18n" data-ko="<b>분석 단위</b> 도서(권)&nbsp;&nbsp;·&nbsp;&nbsp;<b>성격</b> 관찰적 (상관, 인과 아님)&nbsp;&nbsp;·&nbsp;&nbsp;<b>읽는 시간</b> 약 7분" data-en="<b>Unit</b> per book&nbsp;&nbsp;·&nbsp;&nbsp;<b>Nature</b> observational (assoc., not causal)&nbsp;&nbsp;·&nbsp;&nbsp;<b>Read</b> ~7 min"><b>분석 단위</b> 도서(권)&nbsp;&nbsp;·&nbsp;&nbsp;<b>성격</b> 관찰적 (상관, 인과 아님)&nbsp;&nbsp;·&nbsp;&nbsp;<b>읽는 시간</b> 약 7분</div>
+      <div class="hero-meta tnum">
+        <div class="m"><div class="v">1,814<small> <span class="i18n" data-ko="권" data-en="books">권</span></small></div><div class="k i18n" data-ko="분석 도서" data-en="books analyzed">분석 도서</div></div>
+        <div class="m"><div class="v">+0.8<small>%p</small></div><div class="k i18n" data-ko="책소개 추가 설명력 (ΔR²)" data-en="copy's added R² (ΔR²)">책소개 추가 설명력 (ΔR²)</div></div>
+        <div class="m"><div class="v">0/20</div><div class="k i18n" data-ko="예측이 장르평균 넘은 시드" data-en="seeds beating genre-mean">예측이 장르평균 넘은 시드</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><span class="panel-title"><span class="dotg"></span><span class="i18n" data-ko="설명력 분해" data-en="Variance decomposition">설명력 분해</span></span><span class="badge i18n" data-ko="n=1,814" data-en="n=1,814">n=1,814</span></div>
+      <div class="big-num tnum">+0.008 <span class="delta i18n" data-ko="▼ 합격선 0.02 미달" data-en="▼ below 0.02 bar">▼ 합격선 0.02 미달</span></div>
+      <img src="report_assets/fig_waterfall.png" alt="controls → +context(genre) → +copy → +badge 누적 R² 분해 막대">
+      <div class="stat-row tnum">
+        <div class="stat"><div class="v">1/9</div><div class="k i18n" data-ko="copy 유의(FDR)" data-en="copy sig (FDR)">copy 유의(FDR)</div></div>
+        <div class="stat"><div class="v">0/8</div><div class="k i18n" data-ko="배지 유의(통제 후)" data-en="badge sig (controlled)">배지 유의(통제 후)</div></div>
+        <div class="stat"><div class="v">+0.22</div><div class="k i18n" data-ko="장르 ΔR²" data-en="genre ΔR²">장르 ΔR²</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 01 질문 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">01</span><span class="i18n" data-ko="질문" data-en="The question">질문</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="“좋은 책소개가 책을 팔린다”는 통념" data-en="The belief that “good blurbs sell books”">“좋은 책소개가 책을 팔린다”는 통념</h2>
+  <p class="lede i18n" data-ko="온라인 서점의 상품 페이지에서 가장 공들이는 칸 중 하나가 책소개 문구다. ‘베스트셀러’ ‘수상작’ ‘100만 부’ 같은 말이 박혀 있으면 더 끌린다고들 믿는다. 정말 그 문구가 판매를 끌어올릴까? 아니면 잘 팔리는 책이 그렇게 적어 두는 것뿐일까?" data-en="The blurb is one of the most labored-over boxes on an online bookstore page. Words like “bestseller,” “award-winning,” “a million sold” are believed to pull buyers in. Does that copy actually lift sales — or do already-selling books simply write those words?">온라인 서점의 상품 페이지에서 가장 공들이는 칸 중 하나가 책소개 문구다. ‘베스트셀러’ ‘수상작’ ‘100만 부’ 같은 말이 박혀 있으면 더 끌린다고들 믿는다. 정말 그 문구가 판매를 끌어올릴까? 아니면 잘 팔리는 책이 그렇게 적어 두는 것뿐일까?</p>
+  <p class="i18n" data-ko="질문을 측정 가능하게 좁혔다. <b>분석 단위는 책 한 권</b>, 타깃은 판매 모멘텀 지표인 <b>판매지수</b>다. 원래 Yes24 판매지수를 보려 했지만 합법 공개 API가 없어, 같은 ‘최근 가중 누적 판매’ 계열인 <b>알라딘 SalesPoint</b>로 대체했다. 책소개 문구의 텍스트 특성·장르·페이지수·가격이 판매지수와 어떻게 연관되는지를, 누적 리뷰·출간 경과·평점 같은 교란요인을 감안한 뒤 분리하는 것이 목표다. 미리 못 박는다: 이건 관찰 데이터라 <b>상관이지 인과가 아니다.</b>" data-en="We narrowed it to something measurable. <b>The unit is a single book</b>; the target is the sales-momentum index, <b>SalesPoint</b>. We meant to study Yes24's index but it has no lawful public API, so we substituted <b>Aladin's SalesPoint</b> — the same recency-weighted accumulated-sales family. The goal: isolate how a blurb's text features, genre, page count and price relate to SalesPoint after accounting for confounds like accumulated reviews, age and rating. Stated up front: this is observational — <b>association, not causation.</b>">질문을 측정 가능하게 좁혔다. <b>분석 단위는 책 한 권</b>, 타깃은 판매 모멘텀 지표인 <b>판매지수</b>다. 원래 Yes24 판매지수를 보려 했지만 합법 공개 API가 없어, 같은 ‘최근 가중 누적 판매’ 계열인 <b>알라딘 SalesPoint</b>로 대체했다. 책소개 문구의 텍스트 특성·장르·페이지수·가격이 판매지수와 어떻게 연관되는지를, 누적 리뷰·출간 경과·평점 같은 교란요인을 감안한 뒤 분리하는 것이 목표다. 미리 못 박는다: 이건 관찰 데이터라 <b>상관이지 인과가 아니다.</b></p>
+</div></section>
+
+<!-- ============ 02 데이터 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">02</span><span class="i18n" data-ko="데이터" data-en="The data">데이터</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="알라딘 API로 모은 1,814권" data-en="1,814 books from the Aladin API">알라딘 API로 모은 1,814권</h2>
+  <p class="i18n" data-ko="알라딘 TTB 공개 API에서 장르별 베스트셀러 목록을 따라 책을 모았다. 목록 한 줄에 이미 판매지수·책소개·장르·가격·출간일이 들어 있고, 책마다 상세 조회를 한 번 더 걸어 <b>페이지수</b>와 <b>리뷰 수</b>를 채웠다. 조인 키는 ISBN13. 판매지수가 0(아직 안 팔린 신간)이거나 출간 90일 미만인 책은 지수가 덜 여물어 제외했고, 장르 균형을 맞춰 최종 <b>1,814권</b>으로 정리했다." data-en="We harvested books by following Aladin's per-genre bestseller lists via the TTB open API. Each list row already carries SalesPoint, blurb, genre, price and pub date; one detail lookup per book added <b>page count</b> and <b>review counts</b>. The join key is ISBN13. Books with SalesPoint 0 (brand-new, unsold) or younger than 90 days were dropped — the index hasn't matured — and we balanced across genres to a final <b>1,814 books</b>.">알라딘 TTB 공개 API에서 장르별 베스트셀러 목록을 따라 책을 모았다. 목록 한 줄에 이미 판매지수·책소개·장르·가격·출간일이 들어 있고, 책마다 상세 조회를 한 번 더 걸어 <b>페이지수</b>와 <b>리뷰 수</b>를 채웠다. 조인 키는 ISBN13. 판매지수가 0(아직 안 팔린 신간)이거나 출간 90일 미만인 책은 지수가 덜 여물어 제외했고, 장르 균형을 맞춰 최종 <b>1,814권</b>으로 정리했다.</p>
+</div>
+  <div class="srccards">
+    <div class="card">
+      <h3><span class="ic"><i data-lucide="database"></i></span><span class="i18n" data-ko="목록 API" data-en="List API">목록 API</span></h3>
+      <p style="margin-bottom:8px"><span class="badge">ItemList · ItemSearch</span></p>
+      <p class="i18n" data-ko="장르별 베스트셀러·검색 결과. 한 줄에 판매지수·책소개 blurb·장르 경로·정가/판매가·평점이 포함. 50개/페이지." data-en="Per-genre bestseller & search rows — each carries SalesPoint, blurb, genre path, list/sale price, rating. 50 per page.">장르별 베스트셀러·검색 결과. 한 줄에 판매지수·책소개 blurb·장르 경로·정가/판매가·평점이 포함. 50개/페이지.</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic"><i data-lucide="book-open"></i></span><span class="i18n" data-ko="상세 조회" data-en="Lookup API">상세 조회</span></h3>
+      <p style="margin-bottom:8px"><span class="badge">ItemLookUp · ISBN13</span></p>
+      <p class="i18n" data-ko="책별 1회 호출로 페이지수(길이)와 리뷰 수(별점·100자평·마이리뷰), 시리즈 여부를 확보. 총 1,896 호출(한도 5,000/일 이내)." data-en="One call per book for page count (length), review counts (ratings, short & full reviews) and series membership. 1,896 calls total, within the 5,000/day cap.">책별 1회 호출로 페이지수(길이)와 리뷰 수(별점·100자평·마이리뷰), 시리즈 여부를 확보. 총 1,896 호출(한도 5,000/일 이내).</p>
+    </div>
+    <div class="card">
+      <h3><span class="ic"><i data-lucide="type"></i></span><span class="i18n" data-ko="파생 텍스트 feature" data-en="Derived text features">파생 텍스트 feature</span></h3>
+      <p style="margin-bottom:8px"><span class="badge i18n" data-ko="blurb 중앙값 142자" data-en="median 142 chars">blurb 중앙값 142자</span></p>
+      <p class="i18n" data-ko="책소개에서 길이·문장수·문장부호·숫자 포함 여부 등 ‘문구 통제가능’ 특성(T1)과, ‘성취 배지’ 키워드(T2: 베스트셀러·수상·만 부…)를 분리해 추출. 단 짧은 blurb뿐, 전체 책소개는 API 미제공." data-en="From the blurb we split copywriter-controllable features (T1: length, sentences, punctuation, digits) from achievement-badge keywords (T2: bestseller, award, million-sold…). Only the short blurb is available — the full description isn't served by the API.">책소개에서 길이·문장수·문장부호·숫자 포함 여부 등 ‘문구 통제가능’ 특성(T1)과, ‘성취 배지’ 키워드(T2: 베스트셀러·수상·만 부…)를 분리해 추출. 단 짧은 blurb뿐, 전체 책소개는 API 미제공.</p>
+    </div>
+  </div>
+<div class="essay">
+  <p class="i18n" data-ko="여기 약한 고리가 하나 있고, 그게 이 분석 전체의 해석을 묶는다. 표본은 전부 <b>이미 베스트셀러 목록에 올라 있는 책</b>들이다 — 즉 결과변수(판매)로 걸러진 표본. 잘 안 팔리는 책의 ‘긴 꼬리’는 구조적으로 빠져 있다. 나중에 ‘copy가 판매를 못 움직인다’는 결과가 나와도, 그것이 차트 *안* 이야기지 ‘책이 차트에 *오르는*’ 단계의 이야기는 아님을 계속 염두에 둬야 한다." data-en="There is one weak link, and it bounds how everything here should be read. Every book in the sample is <b>already on a bestseller list</b> — i.e. selected on the outcome (sales). The long tail of poor sellers is structurally absent. So even when we find that copy doesn't move sales, that is a statement about position <em>within</em> the chart, not about how a book <em>gets onto</em> it.">여기 약한 고리가 하나 있고, 그게 이 분석 전체의 해석을 묶는다. 표본은 전부 <b>이미 베스트셀러 목록에 올라 있는 책</b>들이다 — 즉 결과변수(판매)로 걸러진 표본. 잘 안 팔리는 책의 ‘긴 꼬리’는 구조적으로 빠져 있다. 나중에 ‘copy가 판매를 못 움직인다’는 결과가 나와도, 그것이 차트 *안* 이야기지 ‘책이 차트에 *오르는*’ 단계의 이야기는 아님을 계속 염두에 둬야 한다.</p>
+</div></section>
+
+<!-- ============ 03 배경 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">03</span><span class="i18n" data-ko="배경" data-en="Backdrop">배경</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="판매지수의 모양과 장르라는 무대" data-en="The shape of SalesPoint, and the genre stage">판매지수의 모양과 장르라는 무대</h2>
+  <p class="i18n" data-ko="판매지수는 한쪽으로 길게 쏠려 있다(왜도 4.6). 소수의 초대형 베스트셀러가 꼬리를 끌기 때문에, 로그를 취해 분포를 펴고(왜도 0.4) 모든 분석의 타깃을 <b>log10(판매지수)</b>로 뒀다(그림 1). 판매지수는 ‘판매량×최근성’ 가중 지수라, 단순 누적 판매량이 아니라 <b>지금 얼마나 팔리는가</b>에 가깝다." data-en="SalesPoint is heavily right-skewed (skew 4.6): a few mega-sellers drag the tail, so we log it to symmetrize (skew 0.4) and set every model's target to <b>log10(SalesPoint)</b> (Fig. 1). Because the index weights sales by recency, it reflects <b>how much a book sells now</b>, not lifetime units.">판매지수는 한쪽으로 길게 쏠려 있다(왜도 4.6). 소수의 초대형 베스트셀러가 꼬리를 끌기 때문에, 로그를 취해 분포를 펴고(왜도 0.4) 모든 분석의 타깃을 <b>log10(판매지수)</b>로 뒀다(그림 1). 판매지수는 ‘판매량×최근성’ 가중 지수라, 단순 누적 판매량이 아니라 <b>지금 얼마나 팔리는가</b>에 가깝다.</p>
+</div>
+  <figure class="figure">
+    <div class="frame"><img src="report_assets/fig_target.png" alt="판매지수 원자료와 로그 변환 히스토그램"></div>
+    <figcaption><span class="ft i18n" data-ko="그림 1" data-en="Fig. 1">그림 1</span><span class="i18n" data-ko="원자료(왼쪽)는 극단적 right-tail, <b>로그 변환(오른쪽)이면 정규에 가까워</b> 회귀에 적합해진다." data-en="Raw (left) has an extreme right tail; <b>the log (right) is near-normal</b>, making it suitable for regression."><b>그림 1</b> 캡션.</span></figcaption>
+  </figure>
+<div class="essay">
+  <p class="i18n" data-ko="본론에 들어가기 전, 무대를 보면 한 변수가 이미 압도적이다. <b>장르</b>다(그림 2). 장르별 평균 판매 모멘텀은 여행(2.84)부터 소설(3.95)까지 약 1.1 log — 즉 <b>약 12배</b> 벌어진다. 어떤 책인지보다 ‘어느 칸의 책인지’가 판매지수의 큰 부분을 미리 정해 둔다는 뜻이다." data-en="Before the core test, the stage already has a dominant actor: <b>genre</b> (Fig. 2). Mean momentum runs from Travel (2.84) to Fiction (3.95) — about 1.1 log, i.e. <b>~12×</b>. Which shelf a book sits on pre-determines much of its SalesPoint, more than anything about the book itself.">본론에 들어가기 전, 무대를 보면 한 변수가 이미 압도적이다. <b>장르</b>다(그림 2). 장르별 평균 판매 모멘텀은 여행(2.84)부터 소설(3.95)까지 약 1.1 log — 즉 <b>약 12배</b> 벌어진다. 어떤 책인지보다 ‘어느 칸의 책인지’가 판매지수의 큰 부분을 미리 정해 둔다는 뜻이다.</p>
+</div>
+  <figure class="figure">
+    <div class="frame"><img src="report_assets/fig_genre.png" alt="장르별 평균 log 판매지수 가로 막대"></div>
+    <figcaption><span class="ft i18n" data-ko="그림 2" data-en="Fig. 2">그림 2</span><span class="i18n" data-ko="장르 하나로 평균 판매 모멘텀이 <b>~12배</b> 갈린다. 이 ‘장르 효과’가 뒤에서 설명력의 거의 전부를 가져간다." data-en="Genre alone splits mean momentum by <b>~12×</b>. This ‘genre effect’ later claims almost all the explanatory power."><b>그림 2</b> 캡션.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ 04 핵심 검증 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">04</span><span class="i18n" data-ko="핵심 검증" data-en="The core test">핵심 검증</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="copy에게 ‘자기 몫’을 따로 물었다" data-en="We asked copy for its own share">copy에게 ‘자기 몫’을 따로 물었다</h2>
+  <p class="i18n" data-ko="흔한 실수는 ‘장르+가격+길이+문구’를 한 덩어리로 넣고 “설명력이 올랐다”고 말하는 것이다. 그러면 장르가 다 끌어올린 걸 문구 공으로 돌리게 된다. 그래서 모델을 층층이 쌓아 <b>각 블록이 ‘자기 혼자’ 보태는 설명력(ΔR²)</b>을 쟀다. 교란요인만 넣으면 R²=0.30, 장르·가격·길이를 더하면 0.52로 뛴다(거의 전부 장르). 그 위에 <b>책소개 문구를 더해도 R²는 0.524 — 단 +0.008</b>이다(그림 3). 합격선으로 잡았던 0.02의 절반에도 못 미친다. 문장부호·길이·감탄·의문… 9개 문구 특성 중 다중검정 보정 후 살아남은 건 <b>딱 하나</b>(책소개에 숫자가 들어가는지)뿐이었다." data-en="The common mistake is to dump ‘genre+price+length+copy’ together and announce that R² rose — crediting copy for what genre lifted. So we stacked the models to measure <b>each block's own added R² (ΔR²)</b>. Confounds alone give R²=0.30; adding genre, price and length jumps it to 0.52 (almost all genre). Adding <b>the blurb copy on top still leaves R²=0.524 — just +0.008</b> (Fig. 3), under half the 0.02 bar we set. Of nine copy features, exactly <b>one</b> survived multiple-testing correction (whether the blurb contains digits).">흔한 실수는 ‘장르+가격+길이+문구’를 한 덩어리로 넣고 “설명력이 올랐다”고 말하는 것이다. 그러면 장르가 다 끌어올린 걸 문구 공으로 돌리게 된다. 그래서 모델을 층층이 쌓아 <b>각 블록이 ‘자기 혼자’ 보태는 설명력(ΔR²)</b>을 쟀다. 교란요인만 넣으면 R²=0.30, 장르·가격·길이를 더하면 0.52로 뛴다(거의 전부 장르). 그 위에 <b>책소개 문구를 더해도 R²는 0.524 — 단 +0.008</b>이다(그림 3). 합격선으로 잡았던 0.02의 절반에도 못 미친다. 문장부호·길이·감탄·의문… 9개 문구 특성 중 다중검정 보정 후 살아남은 건 <b>딱 하나</b>(책소개에 숫자가 들어가는지)뿐이었다.</p>
+</div>
+  <figure class="figure">
+    <div class="frame"><img src="report_assets/fig_forest.png" alt="T1 문구·T2 배지 feature의 IQR당 효과와 신뢰구간"></div>
+    <figcaption><span class="ft i18n" data-ko="그림 3" data-en="Fig. 3">그림 3</span><span class="i18n" data-ko="문구(T1)·배지(T2) feature의 IQR당 판매지수 효과와 95% 신뢰구간. <b>거의 전부 0 근처</b>; FDR 유의는 ‘숫자 포함’ 하나(초록)뿐." data-en="Per-IQR SalesPoint effect (95% CI) of copy (T1) and badge (T2) features. <b>Nearly all hug zero</b>; only ‘contains a number’ (green) is FDR-significant."><b>그림 3</b> 캡션.</span></figcaption>
+  </figure>
+  <div class="pull"><blockquote class="i18n" data-ko="“장르가 차지한 자리에, 문구가 보탤 칸은 거의 남아 있지 않았다.”" data-en="“Once genre took its seat, copy had almost no room left to add.”">“장르가 차지한 자리에, 문구가 보탤 칸은 거의 남아 있지 않았다.”</blockquote></div>
+</section>
+
+<!-- ============ 05 해석 주의 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">05</span><span class="i18n" data-ko="해석 주의" data-en="A caution">해석 주의</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="‘효과 없음’이 아니라 ‘검출 못 함’" data-en="Not ‘no effect’ but ‘cannot detect’">‘효과 없음’이 아니라 ‘검출 못 함’</h2>
+  <p class="i18n" data-ko="여기서 한 발 물러서야 한다. 우리 표본은 이미 차트에 오른 책들이다. 문구가 정말 힘을 쓴다면 그건 아마 책을 <b>차트에 올리는</b> 발견 단계일 텐데, ‘차트인한 책만 보기’는 바로 그 변화를 잘라낸다. 즉 이 설계는 문구의 진짜 효과를 <b>축소</b>하는 쪽으로 작동한다. 그러니 정확한 진술은 “문구는 무의미하다”가 아니라 <b>“차트 안에서의 순위는 문구로 설명되지 않으며, 이 표본에서는 문구 효과를 검출할 수 없다”</b>이다." data-en="Step back here. Our sample is books already on the chart. If copy truly matters, it likely matters at the <b>discovery</b> stage of getting onto the chart — and conditioning on charting cuts exactly that variation out. The design therefore <b>attenuates</b> any real copy effect. So the precise claim is not “copy is meaningless” but <b>“rank within the chart isn't explained by copy, and we cannot detect a copy effect in this sample.”</b>">여기서 한 발 물러서야 한다. 우리 표본은 이미 차트에 오른 책들이다. 문구가 정말 힘을 쓴다면 그건 아마 책을 <b>차트에 올리는</b> 발견 단계일 텐데, ‘차트인한 책만 보기’는 바로 그 변화를 잘라낸다. 즉 이 설계는 문구의 진짜 효과를 <b>축소</b>하는 쪽으로 작동한다. 그러니 정확한 진술은 “문구는 무의미하다”가 아니라 <b>“차트 안에서의 순위는 문구로 설명되지 않으며, 이 표본에서는 문구 효과를 검출할 수 없다”</b>이다.</p>
+</div>
+  <div class="midcol">
+    <div class="callout">
+      <h3 class="i18n" data-ko="⚠ 표본이 결과변수로 선택되었다" data-en="⚠ The sample is selected on the outcome">⚠ 표본이 결과변수로 선택되었다</h3>
+      <p class="i18n" data-ko="베스트셀러 목록 + 판매지수>0 조건으로 표본이 판매 자체로 걸러졌다. 이는 문구 효과를 0 쪽으로 끌어내리고, 예측 R²의 일반화도 ‘차트 안’으로 한정한다. 비차트·신간을 포함한 무편향 표집이면 결과가 달라질 수 있으나, 알라딘 구조상 그런 표집은 불가능했다." data-en="The bestseller-list + SalesPoint>0 filter selects the sample on sales itself. This pulls copy effects toward zero and limits any predictive R² to ‘within the chart.’ An unbiased frame including non-charting and new books could change the result, but Aladin's API makes such sampling impossible.">베스트셀러 목록 + 판매지수>0 조건으로 표본이 판매 자체로 걸러졌다. 이는 문구 효과를 0 쪽으로 끌어내리고, 예측 R²의 일반화도 ‘차트 안’으로 한정한다. 비차트·신간을 포함한 무편향 표집이면 결과가 달라질 수 있으나, 알라딘 구조상 그런 표집은 불가능했다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 재프레임 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">06</span><span class="i18n" data-ko="재프레임" data-en="The reframe">재프레임</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="‘베스트셀러 키워드 효과’라는 착시" data-en="The ‘bestseller-keyword effect’ illusion">‘베스트셀러 키워드 효과’라는 착시</h2>
+  <p class="i18n" data-ko="가장 그럴듯한 통념을 정면으로 깼다. 책소개에 ‘베스트셀러·수상’ 같은 배지 키워드가 있는 책은 없는 책보다 <b>약 2.0배</b> 높은 판매지수를 보인다 — 통제 전에는. 하지만 이건 만들어진 효과다. <b>장르만 통제해도</b> 배지의 추가 설명력은 ΔR² 0.051에서 0.012로 무너지고, 교란요인을 전부 넣으면 0.007로, FDR 유의 키워드는 <b>8개 중 0개</b>가 된다(그림 4). 배지와 누적 인기(리뷰)의 상관도 0.04~0.16으로 낮다. 즉 ‘이미 인기라 그렇게 광고한다’는 순수 역인과라기보다, <b>잘 팔리는 장르의 책들이 그런 키워드를 함께 달고 있을 뿐</b>이다." data-en="We took down the most plausible belief head-on. Books whose blurb carries badge keywords (‘bestseller,’ ‘award’) show ~<b>2.0× higher</b> SalesPoint than those without — before controls. But it's manufactured. <b>Controlling for genre alone</b> collapses the badge block's added R² from 0.051 to 0.012; with all confounds it falls to 0.007, and <b>0 of 8</b> keywords stay FDR-significant (Fig. 4). Badge–review correlation is low (0.04–0.16). So rather than pure reverse causation (‘already popular, so they advertise it’), it's mostly that <b>books in high-selling genres simply carry such words.</b>">가장 그럴듯한 통념을 정면으로 깼다. 책소개에 ‘베스트셀러·수상’ 같은 배지 키워드가 있는 책은 없는 책보다 <b>약 2.0배</b> 높은 판매지수를 보인다 — 통제 전에는. 하지만 이건 만들어진 효과다. <b>장르만 통제해도</b> 배지의 추가 설명력은 ΔR² 0.051에서 0.012로 무너지고, 교란요인을 전부 넣으면 0.007로, FDR 유의 키워드는 <b>8개 중 0개</b>가 된다(그림 4). 배지와 누적 인기(리뷰)의 상관도 0.04~0.16으로 낮다. 즉 ‘이미 인기라 그렇게 광고한다’는 순수 역인과라기보다, <b>잘 팔리는 장르의 책들이 그런 키워드를 함께 달고 있을 뿐</b>이다.</p>
+</div>
+  <div class="midcol">
+    <div class="card">
+      <h3 style="font-size:16px"><span class="ic"><i data-lucide="bar-chart-3"></i></span><span class="i18n" data-ko="배지 키워드의 추가 설명력 ΔR²" data-en="Badge keywords' added R² (ΔR²)">배지 키워드의 추가 설명력 ΔR²</span></h3>
+      <figcaption style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:2px 0 14px"><span class="i18n" data-ko="그림 4" data-en="Fig. 4">그림 4</span></figcaption>
+      <div class="bars">
+        <div class="bar-row"><span class="lab i18n" data-ko="통제 전 (raw)" data-en="before controls (raw)">통제 전 (raw)</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--viz-clay)"></div></div><span class="pct">0.051</span></div>
+        <div class="bar-row"><span class="lab i18n" data-ko="+ 장르만 통제" data-en="+ genre only">+ 장르만 통제</span><div class="bar-track"><div class="bar-fill" style="width:24%;background:var(--viz-slate)"></div></div><span class="pct">0.012</span></div>
+        <div class="bar-row"><span class="lab i18n" data-ko="+ 전체 통제" data-en="+ all controls">+ 전체 통제</span><div class="bar-track"><div class="bar-fill" style="width:14%;background:var(--success)"></div></div><span class="pct">0.007</span></div>
+      </div>
+      <p class="cap" style="margin-top:14px"><span class="i18n" data-ko="<b>2.0배 격차의 대부분은 장르 구성 탓.</b> 장르를 넣는 순간 배지 효과는 거의 사라진다." data-en="<b>Most of the 2.0× gap is genre composition.</b> Add genre and the badge effect nearly vanishes."><b>그림 4</b> 캡션.</span></p>
+    </div>
+  </div>
+  <div class="aside">
+    <div class="box">
+      <div class="at"><i data-lucide="flask-conical"></i><span class="i18n" data-ko="방법 노트" data-en="Method note">방법 노트</span></div>
+      <p class="i18n" data-ko="리뷰 수는 ‘좋은 문구→리뷰↑→판매↑’ 경로의 중간 변수일 수 있어, 통제하면 문구 효과를 가릴 위험이 있다. 그래서 리뷰를 빼고도 문구 ΔR²를 재봤지만 여전히 +0.009로 미미했다 — 문구가 약한 건 통제 탓이 아니라 문구 자체 때문이다. 또 비선형 모델(부스팅 트리)에서도 문구를 넣으면 예측이 오히려 0.02 나빠져, ‘선형이라 못 잡았다’는 변명도 닫혔다." data-en="Review count may be a mediator on a ‘good copy → more reviews → more sales’ path, so controlling it could mask a copy effect. We re-ran copy's ΔR² without reviews and it stayed tiny (+0.009) — copy is weak on its own, not because of the control. And in a nonlinear model (boosted trees), adding copy made prediction ~0.02 worse, closing the ‘linearity missed it’ escape.">리뷰 수는 ‘좋은 문구→리뷰↑→판매↑’ 경로의 중간 변수일 수 있어, 통제하면 문구 효과를 가릴 위험이 있다. 그래서 리뷰를 빼고도 문구 ΔR²를 재봤지만 여전히 +0.009로 미미했다 — 문구가 약한 건 통제 탓이 아니라 문구 자체 때문이다. 또 비선형 모델(부스팅 트리)에서도 문구를 넣으면 예측이 오히려 0.02 나빠져, ‘선형이라 못 잡았다’는 변명도 닫혔다.</p>
+    </div>
+  </div>
+  <div class="pull"><blockquote class="i18n" data-ko="“키워드가 책을 판 게 아니라, 잘 팔리는 책이 그 키워드를 달고 있었다.”" data-en="“The keyword didn't sell the book; the selling book wore the keyword.”">“키워드가 책을 판 게 아니라, 잘 팔리는 책이 그 키워드를 달고 있었다.”</blockquote></div>
+</section>
+
+<!-- ============ 07 방법 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">07</span><span class="i18n" data-ko="방법" data-en="The lens">방법</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="장르평균을 이겨야 했던 예측" data-en="Prediction had to beat the genre mean">장르평균을 이겨야 했던 예측</h2>
+  <p class="i18n" data-ko="예측에서도 같은 규율을 걸었다. 출판사가 실제로 쓸 수 있는 건 <b>출간 전에 아는 것</b>(문구·장르·길이·가격·저자)뿐이라, 그것만으로 만든 ‘사전런칭 모델(B2)’을 평가했다. 베이스라인은 가장 단순한 <b>장르평균</b>. 그리고 같은 저자가 train·test에 갈리지 않도록 저자 단위로 폴드를 나눴다(GroupKFold). 결과는 표와 같다 — 사전런칭 모델은 장르평균을 거의 못 이긴다." data-en="We held the same discipline in prediction. A publisher can only use <b>what's known before launch</b> (copy, genre, length, price, author), so we evaluated a ‘pre-launch model (B2)’ built from just those. The baseline is the simplest thing — the <b>genre mean</b>. We split folds by author (GroupKFold) so the same author can't leak across train/test. The table tells it: the pre-launch model barely beats the genre mean.">예측에서도 같은 규율을 걸었다. 출판사가 실제로 쓸 수 있는 건 <b>출간 전에 아는 것</b>(문구·장르·길이·가격·저자)뿐이라, 그것만으로 만든 ‘사전런칭 모델(B2)’을 평가했다. 베이스라인은 가장 단순한 <b>장르평균</b>. 그리고 같은 저자가 train·test에 갈리지 않도록 저자 단위로 폴드를 나눴다(GroupKFold). 결과는 표와 같다 — 사전런칭 모델은 장르평균을 거의 못 이긴다.</p>
+</div>
+  <div class="midcol">
+    <table class="tnum">
+      <thead><tr><th class="i18n" data-ko="모델" data-en="Model">모델</th><th class="i18n" data-ko="역할" data-en="Role">역할</th><th class="num i18n" data-ko="test R² (log)" data-en="test R² (log)">test R² (log)</th></tr></thead>
+      <tbody>
+        <tr><td class="i18n" data-ko="전체평균" data-en="Global mean">전체평균</td><td class="i18n" data-ko="floor baseline" data-en="floor baseline">floor baseline</td><td class="num">0.00</td></tr>
+        <tr><td class="i18n" data-ko="장르평균" data-en="Genre mean">장르평균</td><td class="i18n" data-ko="baseline (이겨야 할 선)" data-en="baseline (the bar)">baseline (이겨야 할 선)</td><td class="num">0.386</td></tr>
+        <tr><td class="i18n" data-ko="B2 사전런칭 (문구+장르+길이+가격)" data-en="B2 pre-launch (copy+genre+length+price)">B2 사전런칭 (문구+장르+길이+가격)</td><td class="i18n" data-ko="★ 결정관련" data-en="★ decision-relevant">★ 결정관련</td><td class="num">0.400</td></tr>
+        <tr><td class="i18n" data-ko="B1 리뷰 포함" data-en="B1 with reviews">B1 리뷰 포함</td><td class="i18n" data-ko="상한 (출간 후 변수)" data-en="upper bound (post-launch)">상한 (출간 후 변수)</td><td class="num">0.52</td></tr>
+      </tbody>
+    </table>
+  </div>
+<div class="essay">
+  <p class="i18n" data-ko="20개 랜덤 시드로 다시 돌려도 사전런칭 모델이 장르평균을 +0.05 이상 이긴 경우는 <b>0/20</b>이었다. 게다가 문구 feature를 넣으면 예측이 평균적으로 더 나빠졌다. 반대로 리뷰를 넣은 상한 모델(B1)은 0.52까지 오르는데, 이는 <b>누적 인기(리뷰)가 장르 위에서 가장 큰 추가 신호</b>(약 +0.10)임을 뜻한다 — 그러나 리뷰는 출간 후에야 생기는 변수다." data-en="Re-running across 20 random seeds, the pre-launch model beat the genre mean by ≥0.05 in <b>0 of 20</b> splits, and adding copy features made prediction worse on average. The with-reviews upper bound (B1) climbs to 0.52, meaning <b>accumulated reviews are the biggest signal above genre</b> (~+0.10) — but reviews only exist after launch.">20개 랜덤 시드로 다시 돌려도 사전런칭 모델이 장르평균을 +0.05 이상 이긴 경우는 <b>0/20</b>이었다. 게다가 문구 feature를 넣으면 예측이 평균적으로 더 나빠졌다. 반대로 리뷰를 넣은 상한 모델(B1)은 0.52까지 오르는데, 이는 <b>누적 인기(리뷰)가 장르 위에서 가장 큰 추가 신호</b>(약 +0.10)임을 뜻한다 — 그러나 리뷰는 출간 후에야 생기는 변수다.</p>
+  <p class="i18n" data-ko="장르를 통째로 빼고 봐도 결론은 같았다 — 장르별로 따로 회귀하면(slope도 자유롭게) copy의 과적합 보정 ΔR² 중앙값은 <b>+0.007</b>, 절반 장르는 음수였고 13장르 중 FDR을 통과한 곳은 <b>0개</b>였다(그림 5). ‘장르 안에서는 다를 것’이라는 기대도 데이터로 닫혔다 — 여행 장르만 약한 단서로 남는다." data-en="Removing genre entirely changes nothing — fitting a separate regression per genre (slopes free), copy's overfitting-adjusted ΔR² has a median of <b>+0.007</b>, is negative in half the genres, and <b>0 of 13</b> survive FDR (Fig. 5). The hope that ‘it's different within a genre’ is closed by the data too — only Travel leaves a faint hint.">장르를 통째로 빼고 봐도 결론은 같았다 — 장르별로 따로 회귀하면(slope도 자유롭게) copy의 과적합 보정 ΔR² 중앙값은 <b>+0.007</b>, 절반 장르는 음수였고 13장르 중 FDR을 통과한 곳은 <b>0개</b>였다(그림 5). ‘장르 안에서는 다를 것’이라는 기대도 데이터로 닫혔다 — 여행 장르만 약한 단서로 남는다.</p>
+</div>
+  <figure class="figure">
+    <div class="frame"><img src="report_assets/fig_within.png" alt="장르별 copy 보정 ΔR² 가로 막대"></div>
+    <figcaption><span class="ft i18n" data-ko="그림 5" data-en="Fig. 5">그림 5</span><span class="i18n" data-ko="장르별로 따로 회귀해도 copy의 보정 ΔR²는 <b>거의 0이거나 음수</b>. FDR 통과 장르 0개 — 장르 안에서도 문구는 판매를 못 설명한다." data-en="Even per genre, copy's adjusted ΔR² is <b>near zero or negative</b>. Zero genres survive FDR — within a genre too, copy doesn't explain sales."><b>그림 5</b> 캡션.</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ 08 결론 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">08</span><span class="i18n" data-ko="결론" data-en="Conclusion">결론</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="그래서, 문구는 거의 안 움직였다" data-en="So: copy barely moved it">그래서, 문구는 거의 안 움직였다</h2>
+  <p class="lede i18n" data-ko="우리가 세운 두 합격선 — 문구가 자기 몫으로 ΔR²≥0.02·유의 특성 3개 이상, 사전런칭 예측이 장르평균+0.05 — 은 <b>모두 미달(NOT MET)</b>이었다. 그리고 이 음성 결과는 다중 시드·비선형·매개변수 점검을 모두 통과한 <b>견고한 결과</b>다." data-en="Both bars we set — copy's own ΔR²≥0.02 with ≥3 significant features, and a pre-launch model beating genre-mean by 0.05 — were <b>NOT MET</b>. And this negative is <b>robust</b>: it survived multi-seed, nonlinear and mediator checks.">우리가 세운 두 합격선 — 문구가 자기 몫으로 ΔR²≥0.02·유의 특성 3개 이상, 사전런칭 예측이 장르평균+0.05 — 은 <b>모두 미달(NOT MET)</b>이었다. 그리고 이 음성 결과는 다중 시드·비선형·매개변수 점검을 모두 통과한 <b>견고한 결과</b>다.</p>
+  <p class="i18n" data-ko="출판사 입장에서 이 결과는 ‘실패’가 아니라 자원 배분의 단서다. <b>차트에 오른 책들 사이에서는, 책소개 문구의 미세 조정으로 판매 모멘텀을 끌어올릴 근거가 보이지 않는다.</b> 끌어올리는 건 장르 포지셔닝과 출간 후 리뷰·입소문 모멘텀이다. 다만 표본이 ‘이미 팔리는 책’에 한정돼 있어, 책을 <b>차트에 올리는</b> 발견 단계에서 문구가 하는 역할은 이 분석이 답하지 못한다(후속 과제)." data-en="For a publisher this isn't ‘failure’ but a clue for allocating effort. <b>Among books that already chart, there's no evidence that fine-tuning the blurb lifts sales momentum.</b> What lifts it is genre positioning and post-launch review/word-of-mouth momentum. But because the sample is limited to already-selling books, the role of copy at the <b>discovery</b> stage of getting onto a chart is left unanswered (a follow-up).">출판사 입장에서 이 결과는 ‘실패’가 아니라 자원 배분의 단서다. <b>차트에 오른 책들 사이에서는, 책소개 문구의 미세 조정으로 판매 모멘텀을 끌어올릴 근거가 보이지 않는다.</b> 끌어올리는 건 장르 포지셔닝과 출간 후 리뷰·입소문 모멘텀이다. 다만 표본이 ‘이미 팔리는 책’에 한정돼 있어, 책을 <b>차트에 올리는</b> 발견 단계에서 문구가 하는 역할은 이 분석이 답하지 못한다(후속 과제).</p>
+</div>
+  <div class="midcol wide">
+    <div class="insights">
+      <div class="ins"><span class="n">1</span><div><h4 class="i18n" data-ko="문구는 거의 못 움직인다" data-en="Copy barely moves it">문구는 거의 못 움직인다</h4><p class="i18n" data-ko="문구의 자기 몫 ΔR²=+0.008, 유의 특성 1/9. blurb 미세 조정에 마케팅 자원 과투자할 근거 없음." data-en="Copy's own ΔR²=+0.008, 1/9 significant. No basis to over-invest marketing effort in blurb tweaks.">문구의 자기 몫 ΔR²=+0.008, 유의 특성 1/9. blurb 미세 조정에 마케팅 자원 과투자할 근거 없음.</p></div></div>
+      <div class="ins"><span class="n">2</span><div><h4 class="i18n" data-ko="‘배지 효과’는 착시" data-en="The ‘badge effect’ is an illusion">‘배지 효과’는 착시</h4><p class="i18n" data-ko="베스트셀러·수상 키워드의 2배 격차는 장르 교란. 통제하면 유의 0/8. ‘성취를 적어라’식 조언은 무효." data-en="The 2× gap for bestseller/award keywords is genre confounding; 0/8 significant once controlled. ‘Write the badge’ advice is void.">베스트셀러·수상 키워드의 2배 격차는 장르 교란. 통제하면 유의 0/8. ‘성취를 적어라’식 조언은 무효.</p></div></div>
+      <div class="ins"><span class="n">3</span><div><h4 class="i18n" data-ko="장르 + 리뷰가 지배" data-en="Genre + reviews dominate">장르 + 리뷰가 지배</h4><p class="i18n" data-ko="장르 하나로 ~12배, 리뷰가 그 위 최대 신호(+0.10). 둘 다 문구로 통제 불가 — 포지셔닝·입소문에 집중." data-en="Genre alone ~12×; reviews add the most on top (+0.10). Neither is a wording lever — focus on positioning and word-of-mouth.">장르 하나로 ~12배, 리뷰가 그 위 최대 신호(+0.10). 둘 다 문구로 통제 불가 — 포지셔닝·입소문에 집중.</p></div></div>
+      <div class="ins"><span class="n">4</span><div><h4 class="i18n" data-ko="검증할 가설 하나" data-en="One hypothesis to test">검증할 가설 하나</h4><p class="i18n" data-ko="책소개에 ‘구체적 숫자’ 포함 → +12.5%/IQR(유일하게 강건). 단 관찰적·책 유형 교란 가능 → A/B로 검증할 가설." data-en="A blurb with concrete numbers → +12.5%/IQR (the one robust signal). Observational, possibly book-type confounded — an A/B hypothesis, not a proven lever.">책소개에 ‘구체적 숫자’ 포함 → +12.5%/IQR(유일하게 강건). 단 관찰적·책 유형 교란 가능 → A/B로 검증할 가설.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 한계 ============ -->
+<section class="longform"><div class="essay">
+  <div class="kicker"><span class="no">09</span><span class="i18n" data-ko="한계" data-en="Limitations">한계</span><span class="ln"></span></div>
+  <h2 class="i18n" data-ko="이 결론을 뒤집을 수 있는 것들" data-en="What could overturn this">이 결론을 뒤집을 수 있는 것들</h2>
+  <p class="i18n" data-ko="가장 큰 약점은 <b>표본이 결과변수로 선택됐다</b>는 점이다. 아래 중 하나라도 바뀌면 결론이 흔들릴 수 있다. 정직하게 말하면, 이 분석은 ‘차트 안’의 이야기이고 ‘차트에 오르는’ 이야기는 아니다." data-en="The biggest weakness is that <b>the sample is selected on the outcome</b>. If any one of the below changes, the conclusion can shift. Honestly: this is a story about ‘within the chart,’ not about ‘getting onto’ it.">가장 큰 약점은 <b>표본이 결과변수로 선택됐다</b>는 점이다. 아래 중 하나라도 바뀌면 결론이 흔들릴 수 있다. 정직하게 말하면, 이 분석은 ‘차트 안’의 이야기이고 ‘차트에 오르는’ 이야기는 아니다.</p>
+</div>
+  <div class="midcol">
+    <div class="callout">
+      <h3 class="i18n" data-ko="가장 중요한 한계" data-en="The most important limitation">가장 중요한 한계</h3>
+      <p class="i18n" data-ko="표본 1,814권은 전부 장르 베스트셀러 차트에 오른 책(판매지수>0). 판매로 선택된 표본이라 문구 효과가 0 쪽으로 축소됐을 수 있다. 비차트·신간을 포함한 무편향 표집이면 문구가 더(또는 덜) 보일 여지가 있으나, 알라딘 API에는 그런 무작위 책 표집 수단이 없다." data-en="All 1,814 books were on a genre bestseller chart (SalesPoint>0). Selected on sales, the sample may attenuate copy effects toward zero. An unbiased frame including non-charting and new books could reveal more (or less) copy effect, but Aladin's API offers no random-book sampling.">표본 1,814권은 전부 장르 베스트셀러 차트에 오른 책(판매지수>0). 판매로 선택된 표본이라 문구 효과가 0 쪽으로 축소됐을 수 있다. 비차트·신간을 포함한 무편향 표집이면 문구가 더(또는 덜) 보일 여지가 있으나, 알라딘 API에는 그런 무작위 책 표집 수단이 없다.</p>
+    </div>
+  </div>
+  <div class="midcol wide">
+    <div class="insights">
+      <div class="ins"><span class="n">A</span><div><h4 class="i18n" data-ko="짧은 책소개뿐" data-en="Short blurb only">짧은 책소개뿐</h4><p class="i18n" data-ko="텍스트가 중앙값 142자 blurb에 한정. 전체 책소개·목차·서평을 보면 신호가 더 있을 수 있음." data-en="Text is limited to a ~142-char blurb. The full description, TOC and reviews might carry more signal.">텍스트가 중앙값 142자 blurb에 한정. 전체 책소개·목차·서평을 보면 신호가 더 있을 수 있음.</p></div></div>
+      <div class="ins"><span class="n">B</span><div><h4 class="i18n" data-ko="단일 스냅샷·단일 서점" data-en="One snapshot, one retailer">단일 스냅샷·단일 서점</h4><p class="i18n" data-ko="2026-06-29 알라딘 한 시점. 판매지수는 매출·부수가 아니라 최근가중 모멘텀. 다른 시점·채널이면 다를 수 있음." data-en="One Aladin snapshot (2026-06-29). SalesPoint is recency-weighted momentum, not revenue/units. Other times/channels may differ.">2026-06-29 알라딘 한 시점. 판매지수는 매출·부수가 아니라 최근가중 모멘텀. 다른 시점·채널이면 다를 수 있음.</p></div></div>
+      <div class="ins"><span class="n">C</span><div><h4 class="i18n" data-ko="미관측 교란" data-en="Unobserved confounds">미관측 교란</h4><p class="i18n" data-ko="마케팅비·표지·미디어 노출·각색 미통제. 따라서 모든 문구 계수는 상한(과대 추정)으로 봐야." data-en="Marketing spend, cover, media, adaptation uncontrolled. So every copy coefficient is an upper bound (overstated).">마케팅비·표지·미디어 노출·각색 미통제. 따라서 모든 문구 계수는 상한(과대 추정)으로 봐야.</p></div></div>
+      <div class="ins"><span class="n">D</span><div><h4 class="i18n" data-ko="균형 표본 = 인구비례 아님" data-en="Balanced ≠ population">균형 표본 = 인구비례 아님</h4><p class="i18n" data-ko="장르를 균형 맞춰 표집해 장르 우세의 ‘크기’는 실제 시장 비율과 다를 수 있음. 방향은 견고." data-en="Genres were sampled balanced, so the magnitude of genre dominance may differ from the real market mix. The direction holds.">장르를 균형 맞춰 표집해 장르 우세의 ‘크기’는 실제 시장 비율과 다를 수 있음. 방향은 견고.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 출처 · 참고 자료 ============ -->
+<section class="block" style="padding-top:8px"><div class="wrap">
+  <div class="refbox">
+    <div class="ref-col">
+      <h4 class="ref-h i18n" data-ko="출처" data-en="Data sources">출처</h4>
+      <ul class="ref-list">
+        <li class="i18n" data-ko="<b>도서 DB</b> 알라딘 인터넷서점 (www.aladin.co.kr) — 도서 DB 제공 : 알라딘 인터넷서점" data-en="<b>Book DB</b> Aladin (www.aladin.co.kr) — Book DB provided by Aladin"><b>도서 DB</b> 알라딘 인터넷서점 (www.aladin.co.kr) — 도서 DB 제공 : 알라딘 인터넷서점</li>
+        <li class="i18n" data-ko="<b>API</b> 알라딘 TTB Open API — ItemList / ItemSearch / ItemLookUp" data-en="<b>API</b> Aladin TTB Open API — ItemList / ItemSearch / ItemLookUp"><b>API</b> 알라딘 TTB Open API — ItemList / ItemSearch / ItemLookUp</li>
+        <li class="i18n" data-ko="<b>수집</b> 2026-06-29 · 1,896 호출 · 1,814권 (비상업·분석 용도)" data-en="<b>Collected</b> 2026-06-29 · 1,896 calls · 1,814 books (non-commercial analysis)"><b>수집</b> 2026-06-29 · 1,896 호출 · 1,814권 (비상업·분석 용도)</li>
+      </ul>
+    </div>
+    <div class="ref-col">
+      <h4 class="ref-h i18n" data-ko="참고 자료" data-en="Notes / method">참고 자료</h4>
+      <ul class="ref-list">
+        <li class="i18n" data-ko="<b>기간 · 표본</b> 2026-06 스냅샷 · 1,814권 · 18 장르(균형)" data-en="<b>Period · sample</b> 2026-06 snapshot · 1,814 books · 18 genres (balanced)"><b>기간 · 표본</b> 2026-06 스냅샷 · 1,814권 · 18 장르(균형)</li>
+        <li class="i18n" data-ko="<b>방법</b> log10(판매지수) OLS (HC3 + 저자 군집 SE) · BH-FDR · 중첩 ΔR² · GroupKFold(저자) 예측(Ridge/HGB/RF)" data-en="<b>Method</b> OLS on log10(SalesPoint) (HC3 + author-clustered SE) · BH-FDR · nested ΔR² · author-GroupKFold prediction (Ridge/HGB/RF)"><b>방법</b> log10(판매지수) OLS (HC3 + 저자 군집 SE) · BH-FDR · 중첩 ΔR² · GroupKFold(저자) 예측(Ridge/HGB/RF)</li>
+        <li class="i18n" data-ko="<b>성격</b> 관찰적 — 상관, 인과 아님" data-en="<b>Nature</b> observational — association, not causation"><b>성격</b> 관찰적 — 상관, 인과 아님</li>
+        <li class="i18n" data-ko="<b>한계</b> 결과변수-선택 표본 · 단일 스냅샷/서점 · 판매지수≠매출 · 짧은 blurb" data-en="<b>Limits</b> outcome-selected sample · single snapshot/retailer · SalesPoint≠revenue · short blurb"><b>한계</b> 결과변수-선택 표본 · 단일 스냅샷/서점 · 판매지수≠매출 · 짧은 blurb</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<!-- Unified portfolio footer (same as the portfolio site). Keep this line. -->
+<script src="https://sciencemj.github.io/embed/footer.js" defer></script>
+
+<!-- Theme toggle + language toggle (ko/en) + Lucide icons -->
+<script>
+  const root=document.documentElement;
+  const savedTheme=localStorage.getItem("ddr-theme");
+  if(savedTheme)root.setAttribute("data-theme",savedTheme);
+  function syncTheme(){
+    const dark=root.getAttribute("data-theme")==="dark";
+    document.getElementById("theme").innerHTML='<i data-lucide="'+(dark?"sun":"moon")+'"></i>';
+    if(window.lucide)lucide.createIcons();
+  }
+  document.getElementById("theme").addEventListener("click",()=>{
+    const next=root.getAttribute("data-theme")==="dark"?"light":"dark";
+    root.setAttribute("data-theme",next);localStorage.setItem("ddr-theme",next);syncTheme();
+  });
+  const LANGS=["ko","en"];
+  function applyLang(lang){
+    if(!LANGS.includes(lang))lang="ko";
+    root.setAttribute("data-lang",lang);
+    root.setAttribute("lang",lang);
+    document.querySelectorAll(".i18n").forEach(el=>{
+      const text=el.getAttribute("data-"+lang);
+      if(text!==null)el.innerHTML=text;
+    });
+    document.querySelectorAll("[data-set-lang]").forEach(btn=>{
+      btn.classList.toggle("on",btn.getAttribute("data-set-lang")===lang);
+    });
+    if(window.lucide)lucide.createIcons();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const lang=btn.getAttribute("data-set-lang");
+      localStorage.setItem("ddr-lang",lang);applyLang(lang);
+    });
+  });
+  applyLang(localStorage.getItem("ddr-lang")||"ko");
+  if(window.lucide)lucide.createIcons();
+  syncTheme();
+</script>
+</body>
+</html>
