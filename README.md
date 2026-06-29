@@ -3,6 +3,9 @@
 차트인한 한국 책 1,814권에서 **책소개 copy·장르·길이·가격**이 판매지수(알라딘 SalesPoint)와
 어떤 관계인지 규명하고 예측. **결론(정직 음성): copy는 판매 모멘텀을 거의 못 움직임 — 장르·누적 리뷰가 지배.**
 
+📊 **[라이브 리포트 보기 (한/EN) →](https://sciencemj.github.io/book-review-rank-predict/)**
+&nbsp;·&nbsp; 로컬: [`report.html`](report.html) &nbsp;·&nbsp; 노트북: [`analysis.ipynb`](analysis.ipynb)
+
 ## 핵심 결과
 - 책소개 copy 자기 몫 ΔR² = **+0.008** (합격선 0.02 미달), 유의 텍스트 feature 1/9.
 - "베스트셀러/수상 키워드 2× 효과"는 **장르 교란** — 통제하면 유의 0/8 (역인과/착시).
